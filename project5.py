@@ -95,10 +95,9 @@ def supply(producers):
     return supply_curve
 
 new_producers = []
-for i in range(50):
-	budget = np.random.uniform(1000, 2000)
-	opp_cost = np.random.uniform(100, 200) * 0.95
-	new_producers.append(Producer(i, budget, opp_cost))
+for producer in producers:
+	new_opp_cost = producer.opp_cost * 0.95
+	new_producers.append(Producer(producer.id_number, producer.budget, new_opp_cost))
  
 demand_curve = demand(consumers)
 supply_95 = supply(new_producers)
